@@ -1,0 +1,24 @@
+# 监听端口
+listen_port: 8082
+
+# 代理模式: regular (普通代理) / transparent (透明代理)
+proxy_mode: regular
+
+# 需要拦截的 URL 路径（支持正则表达式）
+intercept_paths:
+  - /DescribeLicense
+  - /api/v1/.*
+  - /api/v2/.*
+
+# 自定义响应（拦截路径对应返回的 JSON）
+responses:
+  /DescribeLicense: '{"Response": {"License": {"LicenseId": "license-001"}}}'
+  /api/v1/user: '{"code": 0, "data": {"name": "test"}}'
+  /api/v1/order: '{"code": 0, "data": {"orderId": "ORD-001", "status": "paid"}}'
+  /api/v2/product: '{"code": 0, "data": [{"id": 1, "name": "Product A"}, {"id": 2, "name": "Product B"}]}'
+
+# 未匹配路径时的默认响应
+default_response: '{"error": "not found"}'
+
+# 详细日志输出
+verbose: true

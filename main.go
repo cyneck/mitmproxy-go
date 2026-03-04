@@ -125,5 +125,5 @@ func showHelpMessage() {
 	fmt.Println("  mitmproxy-go --config my.json     # Use custom config file")
 	fmt.Println("  mitmproxy-go --verbose            # Enable verbose logging")
 	fmt.Println()
-	fmt.Println("For more information, see: https://github.com/your-repo/mitmproxy-go")
+	fmt.Println("For more information, see: https://github.com/cyneck/mitmproxy-go")
 }

@@ -2,12 +2,10 @@
   "listen_port": 8082,
   "proxy_mode": "regular",
   "intercept_paths": [
-    "/DescribeLicense",
     "/api/v1/.*",
     "/api/v2/.*"
   ],
   "responses": {
-    "/DescribeLicense": "{\"Response\": {\"License\": {\"LicenseId\": \"license-001\"}}}",
     "/api/v1/user": "{\"code\": 0, \"data\": {\"name\": \"test\"}}",
     "/api/v1/order": "{\"code\": 0, \"data\": {\"orderId\": \"ORD-001\", \"status\": \"paid\"}}",
     "/api/v2/product": "{\"code\": 0, \"data\": [{\"id\": 1, \"name\": \"Product A\"}, {\"id\": 2, \"name\": \"Product B\"}]}"

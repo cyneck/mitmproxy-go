@@ -1,0 +1,12 @@
+{
+  "listen_port": 8082,
+  "proxy_mode": "regular",
+  "intercept_paths": [
+    "/api/users"
+  ],
+  "responses": {
+    "/api/users": "{\"code\": 0, \"message\": \"success\", \"data\": [{\"id\": 1, \"name\": \"hacked-user\"}]}"
+  },
+  "default_response": "{\"error\": \"not intercepted\"}",
+  "verbose": true
+}

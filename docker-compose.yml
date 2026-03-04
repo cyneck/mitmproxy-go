@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # 目标测试服务器
+  testserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.testserver
+    ports:
+      - "8888:8888"
+    networks:
+      - mitm-network
+
+  # 代理服务器
+  mitmproxy:
+    build: .
+    ports:
+      - "8082:8082"
+    networks:
+      - mitm-network
+    depends_on:
+      - testserver
+
+networks:
+  mitm-network:
+    driver: bridge
